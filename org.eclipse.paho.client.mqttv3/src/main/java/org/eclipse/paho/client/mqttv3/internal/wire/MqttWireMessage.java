@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttPersistable;
@@ -49,7 +48,7 @@ public abstract class MqttWireMessage {
 	public static final byte MESSAGE_TYPE_PINGRESP = 13;
 	public static final byte MESSAGE_TYPE_DISCONNECT = 14;
 
-	protected static final Charset STRING_ENCODING = StandardCharsets.UTF_8;
+	protected static final Charset STRING_ENCODING = Charset.forName("UTF-8");
 
 	private static final String[] PACKET_NAMES = {"reserved", "CONNECT", "CONNACK", "PUBLISH", "PUBACK", "PUBREC",
 			"PUBREL", "PUBCOMP", "SUBSCRIBE", "SUBACK", "UNSUBSCRIBE", "UNSUBACK", "PINGREQ", "PINGRESP",

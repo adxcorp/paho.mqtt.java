@@ -19,7 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -1009,7 +1009,7 @@ public class SSLSocketFactoryFactory {
 	public String getTrustStore(String configID) {
 		String encodedPath = getProperty(configID, TRUSTSTORE, SYSTRUSTSTORE);
 		try {
-			String decodedPath = java.net.URLDecoder.decode( encodedPath, StandardCharsets.UTF_8.name());
+			String decodedPath = java.net.URLDecoder.decode( encodedPath, Charset.forName("UTF-8").name());
 			return decodedPath;
 		}
 		catch( Exception e ) {
